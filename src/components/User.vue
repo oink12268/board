@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div>
     <div>사용자 정보</div>
     <user-list :datas=datas></user-list>
   </div>
@@ -36,10 +36,5 @@
 </script>
 
 <style scoped>
-  .main {
-    position: fixed !important;
-    top: 50px !important;
-    left: 500px;
-    height: 100vh;
-  }
+
 </style>

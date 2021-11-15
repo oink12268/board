@@ -18,7 +18,7 @@
         menus: [
           {content: 'Court', link: '/Court'},
           {content: 'User', link: '/User'},
-          {content: 'Match', link: '/Match'}
+          {content: 'Schedule', link: '/Schedule'}
         ]
       }
     }

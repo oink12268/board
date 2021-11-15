@@ -3,14 +3,14 @@
     <table>
       <colgroup>
         <col width="20%">
-        <col width="20%">
+<!--        <col width="20%">-->
         <col width="30%">
         <col width="30%">
       </colgroup>
       <thead>
         <tr>
           <th>번호</th>
-          <th>ID</th>
+<!--          <th>ID</th>-->
           <th>이름</th>
           <th>Email</th>
         </tr>
@@ -18,7 +18,7 @@
       <tbody>
         <tr v-for="(data, no) in datas">
           <td>{{no+1}}</td>
-          <td>{{data.id}}</td>
+<!--          <td>{{data.id}}</td>-->
           <td>{{data.userName}}</td>
           <td>{{data.email}}</td>
         </tr>

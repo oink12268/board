@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <div>
     <court-list :datas="datas"></court-list>
   </div>
 </template>
@@ -32,10 +32,4 @@
 </script>
 
 <style scoped>
-  .main {
-    position: fixed !important;
-    top: 50px !important;
-    left: 500px;
-    height: 100vh;
-  }
 </style>

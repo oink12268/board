@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Registration from '@/components/Registration'
 import Court from '@/components/Court'
 import User from '@/components/User'
-import Match from '@/components/Match'
+import Schedule from '@/components/Schedule'
 
 Vue.use(Router)
 
@@ -26,9 +26,9 @@ export default new Router({
       component: User
     },
     {
-      path: '/Match',
-      name: 'Match',
-      component: Match
+      path: '/Schedule',
+      name: 'Schedule',
+      component: Schedule
     }
   ]
 })
