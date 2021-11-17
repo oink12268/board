@@ -12,6 +12,7 @@
 
 <script>
   import ScheduleDetail from './ScheduleDetail.vue'
+  import axios from "axios";
 
   export default {
     name: 'Schedule',
@@ -23,9 +24,17 @@
         isDetail: false
       }
     },
+    created() {
+      this.getData()
+    },
     methods: {
       goDetail () {
         this.isDetail = true;
+      },
+      getData () {
+        axios.get('http://localhost:9000/schedules').then(res => {
+          this.datas = res.data
+        })
       }
     }
   }
