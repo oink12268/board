@@ -16,9 +16,9 @@
     data () {
       return {
         menus: [
-          {content: 'Court', link: '/Court'},
-          {content: 'User', link: '/User'},
-          {content: 'Schedule', link: '/Schedule'}
+          {content: 'Court', link: '/courts'},
+          {content: 'User', link: '/users'},
+          {content: 'Schedule', link: '/schedules'}
         ]
       }
     }
