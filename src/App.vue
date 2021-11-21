@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <left></left>
+<!--    <left></left>-->
     <router-view class="sub-web-view"/>
   </div>
 </template>
@@ -31,7 +31,7 @@
     top: 0 !important;
     z-index: 10 !important;
     height: 100vh;
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     margin-left: 400px;
   }
 </style>
