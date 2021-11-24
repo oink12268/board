@@ -2,10 +2,14 @@
   <div>
     <div id="map"></div>
     <button @click="displayMarker(markerPositions)">mark</button>
+    <button @click="drawLocations">courtLocations</button>
   </div>
 </template>
 
 <script>
+  import axios from "axios"
+  import CourtList from './CourtList.vue'
+
   export default {
   name: 'CourtMap',
   data () {
@@ -19,10 +23,12 @@
         [37.49754540521486, 127.02546694890695],
         [37.49646391248451, 127.02675574250912]
       ],
-      markers: []
+      markers: [],
+      datas: []
     }
   },
   created () {
+    this.getData()
   },
   mounted () {
     if (window.kakao && window.kakao.maps) {
@@ -35,6 +41,11 @@
     }
   },
   methods: {
+    getData () {
+      axios.get('http://localhost:9000/courts').then(res => {
+        this.datas = res.data
+      })
+    },
     initMap () {
       const container = document.getElementById("map");
       const options = {
@@ -47,7 +58,6 @@
       if (this.markers.length > 0) {
         this.markers.forEach((marker) => marker.setMap(null));
       }
-      debugger
 
       const positions = markerPositions.map(
         (position) => new kakao.maps.LatLng(...position)
@@ -68,6 +78,25 @@
         );
 
         this.map.setBounds(bounds);
+      }
+    },
+    drawLocations () {
+      if (this.markers.length > 0) {
+        this.markers.forEach((marker) => marker.setMap(null));
+      }
+
+      for(let i = 0; i < this.datas.length; i++) {
+        let marker = new kakao.maps.Marker({
+          map: this.map,
+          position: new kakao.maps.LatLng(this.datas[i].lat, this.datas[i].lng),
+          title: this.datas[i].name
+        });
+        let infowindow = new kakao.maps.InfoWindow({
+          position: new kakao.maps.LatLng(this.datas[i].lat, this.datas[i].lng),
+          content: this.datas[i].name
+        });
+
+        infowindow.open(this.map, marker)
       }
     }
   }
